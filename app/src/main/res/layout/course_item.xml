@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:elevation="20dp"
+    android:foreground="?selectableItemBackground"
+    card_view:cardCornerRadius="5dp"
+    android:padding="8dp"
+    android:focusable="true">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/course_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="17sp"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            tools:text="Course Name" />
+
+
+        <com.jan.janhackathon.custom.ProgressCircleView
+            android:id="@+id/percentage_circle_view"
+            android:layout_width="wrap_content"
+            android:layout_height="64dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/course_title_text"
+            app:radius="30dp"
+            app:value="100" />
+
+        <TextView
+            android:id="@+id/percentage_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+            app:layout_constraintBottom_toBottomOf="@+id/percentage_circle_view"
+            app:layout_constraintLeft_toLeftOf="@+id/percentage_circle_view"
+            app:layout_constraintRight_toRightOf="@+id/percentage_circle_view"
+            app:layout_constraintTop_toTopOf="@+id/percentage_circle_view"
+            tools:text="17%" />
+
+        <TextView
+            android:id="@+id/course_desc_text"
+            android:layout_width="274dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/long_text"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/course_title_text"
+            app:layout_constraintTop_toBottomOf="@+id/course_title_text" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</android.support.v7.widget.CardView>
