@@ -46,7 +46,7 @@ public class DashboardFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_dashboard, container, false);
-        mCoursesRecyclerView = rootView.findViewById(R.id.courses_recycler_view);
+        mCoursesRecyclerView = rootView.findViewById(R.id.enrolled_courses_recycler_view);
         LinearLayoutManager layoutManager =
                 new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         mCoursesRecyclerView.setLayoutManager(layoutManager);
