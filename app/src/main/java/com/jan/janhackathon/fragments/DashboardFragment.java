@@ -1,6 +1,7 @@
 package com.jan.janhackathon.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,12 +11,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.jan.janhackathon.CourseDetailsActivity;
 import com.jan.janhackathon.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DashboardFragment extends Fragment {
+public class DashboardFragment extends Fragment implements CoursesAdapter.OnCourseClickHandler {
 
 
     public DashboardFragment() {
@@ -37,7 +39,7 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mAdapter = new CoursesAdapter(getContext());
+        mAdapter = new CoursesAdapter(getContext(), this);
 
     }
 
@@ -56,4 +58,8 @@ public class DashboardFragment extends Fragment {
         return rootView;
     }
 
+    @Override
+    public void onCourseClick() {
+        startActivity(new Intent(getActivity(), CourseDetailsActivity.class));
+    }
 }

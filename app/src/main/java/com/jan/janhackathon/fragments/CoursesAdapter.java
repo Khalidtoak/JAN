@@ -14,9 +14,12 @@ import com.jan.janhackathon.custom.ProgressCircleView;
 public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.CoursesViewHolder> {
 
     private final Context mContext;
+    private OnCourseClickHandler mClickHandler;
 
-    public CoursesAdapter(Context context) {
+
+    public CoursesAdapter(Context context, OnCourseClickHandler clickHandler) {
         mContext = context;
+        mClickHandler = clickHandler;
     }
 
     @NonNull
@@ -43,7 +46,7 @@ public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.CoursesV
         return 20;
     }
 
-    class CoursesViewHolder extends RecyclerView.ViewHolder{
+    class CoursesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView courseTitleView,
                 courseDescView,
@@ -57,7 +60,17 @@ public class CoursesAdapter extends RecyclerView.Adapter<CoursesAdapter.CoursesV
             percentageView = itemView.findViewById(R.id.percentage_text);
             progressCircleView = itemView.findViewById(R.id.percentage_circle_view);
 
+            itemView.setOnClickListener(this);
+
         }
 
+        @Override
+        public void onClick(View v) {
+            mClickHandler.onCourseClick();
+        }
+    }
+
+    public interface OnCourseClickHandler {
+        void onCourseClick();
     }
 }

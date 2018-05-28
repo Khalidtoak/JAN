@@ -1,9 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="18dp">
 
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:src="@drawable/ic_user"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/full_name_text"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginStart="18dp"
+        android:text="@string/full_name"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+
+    <com.jan.janhackathon.custom.ProgressCircleView
+        android:id="@+id/average_rating_text"
+        android:layout_width="wrap_content"
+        android:layout_height="64dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="8dp"
+        app:value="70"
+        app:radius="30dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/full_name_text" />
+
+    <TextView
+        android:id="@+id/percentage_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
+        app:layout_constraintBottom_toBottomOf="@+id/average_rating_text"
+        app:layout_constraintLeft_toLeftOf="@+id/average_rating_text"
+        app:layout_constraintRight_toRightOf="@+id/average_rating_text"
+        app:layout_constraintTop_toTopOf="@+id/average_rating_text"
+        android:text="3.5" />
+
+
+    <RatingBar
+        android:id="@+id/avg_rating"
+        style="@style/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:rating="3.5"
+        app:layout_constraintBottom_toBottomOf="@+id/average_rating_text"
+        app:layout_constraintStart_toEndOf="@+id/average_rating_text"
+        app:layout_constraintTop_toTopOf="@+id/average_rating_text" />
+
+    <TextView
+        android:id="@+id/rate_text"
+        android:layout_width="74dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_background"
+        android:gravity="center"
+        android:text="@string/rate"
+        android:textColor="#ffffff"
+        app:layout_constraintStart_toStartOf="@+id/average_rating_text"
+        app:layout_constraintTop_toBottomOf="@+id/average_rating_text" />
+
+    <RatingBar
+        android:id="@+id/rating_bar"
+        style="@style/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="29dp"
+        android:layout_marginStart="8dp"
+        android:isIndicator="false"
+        android:numStars="5"
+        app:layout_constraintBottom_toBottomOf="@+id/rate_text"
+        app:layout_constraintStart_toEndOf="@+id/rate_text"
+        app:layout_constraintTop_toTopOf="@+id/rate_text" />
 
 
 </android.support.constraint.ConstraintLayout>
